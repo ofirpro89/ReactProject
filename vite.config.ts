@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import flowbiteReact from "flowbite-react/plugin/vite";
 
-// https://vite.dev/config/
 export default defineConfig({
+  base: "/ofirpro89/",
   plugins: [react(), tailwindcss(), flowbiteReact()],
 });
