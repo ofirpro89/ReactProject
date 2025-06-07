@@ -4,6 +4,6 @@ import { defineConfig } from "vite";
 import flowbiteReact from "flowbite-react/plugin/vite";
 
 export default defineConfig({
-  base: "/ofirpro89/",
+  base: "/reactProject/",
   plugins: [react(), tailwindcss(), flowbiteReact()],
 });
