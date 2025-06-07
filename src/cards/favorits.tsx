@@ -13,7 +13,7 @@ type CardType = {
   image: {
     url: string;
   };
-  likes: [];
+  likes: string[];
   _id: string;
 };
 

@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import axios from "axios";
 import { Button } from "react-bootstrap";
 import { toast } from "react-toastify";
@@ -19,6 +19,10 @@ type CardType = {
     url?: string;
     alt?: string;
   };
+  likes?: string[];
+  title: string;
+  subtitle: string;
+  description: string;
 };
 
 const GetUserCard = () => {

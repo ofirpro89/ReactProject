@@ -4,6 +4,7 @@ type Tadmin = {
         middle: string;
         last: string;
     };
+    _id: string;
     phone: string;
     email: string;
     password: string;

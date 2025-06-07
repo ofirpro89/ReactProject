@@ -4,7 +4,6 @@ import { Button, FloatingLabel } from "flowbite-react";
 import Ucards from "../Ts/cards"; 
 import CardSimcha from "../Validaisions/CardSimcha"; 
 import axios from "axios";
-import useToken from "../conponntas/useToken";
 import { toast } from "react-toastify";
 import { TRootState } from "../store/store";
 import { useSelector } from "react-redux";
@@ -25,7 +24,7 @@ const CrateCard = () => {
   }
 
 
-  const userId = useToken();
+ 
   const token = localStorage.getItem("token");
   console.log(token)
 
