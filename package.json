@@ -11,8 +11,11 @@
     "preview": "vite preview",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "postinstall": "flowbite-react patch"
-  },
+    "postinstall": "flowbite-react patch",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+},
+
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
