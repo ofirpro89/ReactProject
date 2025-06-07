@@ -1,0 +1,29 @@
+
+
+#userNameLogin {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-left: auto;       
+    padding-right: 20px; 
+    position: absolute;
+    left:10em; 
+    background: #f8f8f759;    
+  }
+  
+  #userNameLogin img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;      
+    object-fit: cover;       
+    border: 2px solid white;   
+  }
+
+  .main-content {
+    padding-top: 40px; /* גובה משוער של ה־Navbar */
+  }
+ 
