@@ -5,7 +5,7 @@ import flowbiteReact from "flowbite-react/plugin/vite";
 
 // שים לב שהרישיות תואמות לשם הריפו ב-GitHub!
 export default defineConfig({
-  base: "/ReactProject/",
+  base: './',
   plugins: [react(), tailwindcss(), flowbiteReact()],
 });
 
