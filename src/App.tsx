@@ -11,6 +11,7 @@ import About from "./pages/abouts";
 import Erorr from "./pages/Erorr";
 import AdminEria from "./pages/AdminEria";
 import AllusersArea from "./pages/AllusersArea";
+import  Footer  from "./conponntas/Footer";
 
 
 
@@ -35,7 +36,8 @@ return (
 
            
         </Routes>
- 
+
+      <Footer />
   </>
 
 )
