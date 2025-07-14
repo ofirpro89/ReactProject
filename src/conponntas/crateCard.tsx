@@ -8,14 +8,7 @@ import { toast } from "react-toastify";
 import { TRootState } from "../store/store";
 import { useSelector } from "react-redux";
 
-
-
-
-
-
-
 const CrateCard = () => {
-
   const user = useSelector((state: TRootState) => state.user.user);
 
   if(!user){
@@ -23,10 +16,7 @@ const CrateCard = () => {
     return null;
   }
 
-
- 
   const token = localStorage.getItem("token");
-  console.log(token)
 
   const {
     register,
@@ -54,43 +44,38 @@ const CrateCard = () => {
         zip: 0,
       },
     },
-    mode: "onChange",
+    mode: "onChange", // זה מאפשר אימות בזמן אמת
     resolver: joiResolver(CardSimcha), 
   });
 
- 
   const submitForm = async (data: Ucards) => {
-    console.log("Form submitted", data);
     try {
       await axios.post(
         `https://monkfish-app-z9uza.ondigitalocean.app/bcard2/cards`,
         data,
         {
-            headers:{
-                "x-auth-token":token
+          headers: {
+            "x-auth-token": token
+          }
         }
-    }
       );
-     toast.success("Card created successfully!");
+      toast.success("Card created successfully!");
       setTimeout(() => {
         window.location.href = "/userCards";
-      }, 2000); 
-
-
-  
+      }, 2000);
     } catch (error) {
       console.error("Error submitting form", error);
+      toast.error("Failed to create card. Please check the fields and try again.");
     }
   };
 
   return (
-    
     <main className="pt-75">
-      
       <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
         <form
           onSubmit={handleSubmit(submitForm)}
           className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-white p-10 rounded-xl shadow-lg w-full max-w-4xl"
+          noValidate // חשוב למנוע התנהגות ברירת מחדל של הדפדפן
         >
           <h1 className="text-3xl font-bold mb-4 sm:col-span-2">Create Card</h1>
 
@@ -101,7 +86,7 @@ const CrateCard = () => {
               label="Title"
               type="text"
             />
-            {errors.title && <p>{errors.title.message}</p>}
+            {errors.title && <p className="text-red-600 text-sm mt-1">{errors.title.message}</p>}
           </div>
 
           <div>
@@ -111,7 +96,7 @@ const CrateCard = () => {
               label="Subtitle"
               type="text"
             />
-            {errors.subtitle && <p>{errors.subtitle.message}</p>}
+            {errors.subtitle && <p className="text-red-600 text-sm mt-1">{errors.subtitle.message}</p>}
           </div>
 
           <div>
@@ -121,7 +106,7 @@ const CrateCard = () => {
               label="Description"
               type="text"
             />
-            {errors.description && <p>{errors.description.message}</p>}
+            {errors.description && <p className="text-red-600 text-sm mt-1">{errors.description.message}</p>}
           </div>
 
           <div>
@@ -131,7 +116,7 @@ const CrateCard = () => {
               label="Phone"
               type="text"
             />
-            {errors.phone && <p>{errors.phone.message}</p>}
+            {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone.message}</p>}
           </div>
 
           <div>
@@ -141,9 +126,7 @@ const CrateCard = () => {
               label="Email"
               type="email"
             />
-            {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-            )}
+            {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>}
           </div>
 
           <div>
@@ -153,7 +136,7 @@ const CrateCard = () => {
               label="Website"
               type="text"
             />
-            {errors.web && <p>{errors.web.message}</p>}
+            {errors.web && <p className="text-red-600 text-sm mt-1">{errors.web.message}</p>}
           </div>
 
           <div>
@@ -163,7 +146,7 @@ const CrateCard = () => {
               label="Image URL"
               type="text"
             />
-            {errors.image?.url && <p>{errors.image.url.message}</p>}
+            {errors.image?.url && <p className="text-red-600 text-sm mt-1">{errors.image.url.message}</p>}
           </div>
 
           <div>
@@ -173,7 +156,7 @@ const CrateCard = () => {
               label="Image Alt"
               type="text"
             />
-            {errors.image?.alt && <p>{errors.image.alt.message}</p>}
+            {errors.image?.alt && <p className="text-red-600 text-sm mt-1">{errors.image.alt.message}</p>}
           </div>
 
           <div>
@@ -183,7 +166,7 @@ const CrateCard = () => {
               label="State"
               type="text"
             />
-            {errors.address?.state && <p>{errors.address.state.message}</p>}
+            {errors.address?.state && <p className="text-red-600 text-sm mt-1">{errors.address.state.message}</p>}
           </div>
 
           <div>
@@ -193,9 +176,7 @@ const CrateCard = () => {
               label="Country"
               type="text"
             />
-            {errors.address?.country && (
-              <p>{errors.address.country.message}</p>
-            )}
+            {errors.address?.country && <p className="text-red-600 text-sm mt-1">{errors.address.country.message}</p>}
           </div>
 
           <div>
@@ -205,7 +186,7 @@ const CrateCard = () => {
               label="City"
               type="text"
             />
-            {errors.address?.city && <p>{errors.address.city.message}</p>}
+            {errors.address?.city && <p className="text-red-600 text-sm mt-1">{errors.address.city.message}</p>}
           </div>
 
           <div>
@@ -215,7 +196,7 @@ const CrateCard = () => {
               label="Street"
               type="text"
             />
-            {errors.address?.street && <p>{errors.address.street.message}</p>}
+            {errors.address?.street && <p className="text-red-600 text-sm mt-1">{errors.address.street.message}</p>}
           </div>
 
           <div>
@@ -225,9 +206,7 @@ const CrateCard = () => {
               label="House Number"
               type="number"
             />
-            {errors.address?.houseNumber && (
-              <p>{errors.address.houseNumber.message}</p>
-            )}
+            {errors.address?.houseNumber && <p className="text-red-600 text-sm mt-1">{errors.address.houseNumber.message}</p>}
           </div>
 
           <div>
@@ -237,10 +216,8 @@ const CrateCard = () => {
               label="Zip Code"
               type="text"
             />
-            {errors.address?.zip && <p>{errors.address.zip.message}</p>}
+            {errors.address?.zip && <p className="text-red-600 text-sm mt-1">{errors.address.zip.message}</p>}
           </div>
-
-        
 
           <div className="sm:col-span-2 mt-4">
             <Button
